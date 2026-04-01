@@ -1,6 +1,6 @@
 # matrix-finder
 
-> Are you living in a simulation? This tool tells you.
+> Are you living in a simulation?
 
 `matrix-finder` is a Windows CLI that detects whether the current machine is a VM or hypervisor guest by probing four independent hardware and OS signals, then aggregating them into a 0–100 confidence score.
 
@@ -8,7 +8,7 @@
 
 ## Why this exists
 
-Games like Roblox run anti-cheat software that bans players who appear to be inside a virtual machine — the original motivation for this kind of tooling. The same problem bites Linux users running Windows games under Wine/Proton inside a KVM guest: the hypervisor fingerprint leaks through and the game refuses to start. Knowing *which* signals get you flagged, and how strongly, lets you understand (or argue with) that decision.
+Games run anti-cheat software that bans or block players who appear to be inside a virtual machine. The same problem bites Linux users running Windows games under Wine/Proton inside a KVM guest: the hypervisor fingerprint leaks through and the game refuses to start. Knowing *which* signals get you flagged, and how strongly, lets you understand (or argue with) that decision — the original motivation for this kind of tooling.
 
 More broadly, VM detection is a standard first step in malware sandboxing, reverse engineering setups, and security research environments where you want to know what kind of execution environment you're actually in.
 
@@ -95,7 +95,7 @@ Run on a bare-metal Windows 11 machine with Virtualization Based Security (VBS) 
 - **Compiler:** GCC 13 via MinGW64
 - **OS APIs:** `windows.h`, `advapi32` (registry), `NtQuerySystemInformation` (SMBIOS)
 - **Testing:** hand-rolled mock layer that replaces real hardware reads with fixed fixture data
-
+  
 ---
 
 ## Milestone history
