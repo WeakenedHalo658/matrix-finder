@@ -3,6 +3,7 @@
 #include "cpuid_detect.h"
 #include "registry_detect.h"
 #include "smbios_detect.h"
+#include "timing_detect.h"
 
 int main(void)
 {
@@ -31,6 +32,12 @@ int main(void)
     SmbiosResult smbios_result;
     smbios_detect(&smbios_result);
     smbios_print(&smbios_result);
+
+    /* --- Milestone 4: RDTSC Timing Detection Layer --- */
+    printf("[Timing Detection Layer]\n");
+    TimingResult timing_result;
+    timing_detect(&timing_result);
+    timing_print(&timing_result);
 
     printf("\n------------------------------------------------\n");
     printf("Analysis complete.\n");
