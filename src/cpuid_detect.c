@@ -45,13 +45,20 @@ void cpuid_detect(CpuidResult *result)
     result->vendor_string[12] = '\0';
 
     /* Match against known vendors using memcmp (handles embedded NULs). */
+    cpuid_classify_vendor(result);
+}
+
+void cpuid_classify_vendor(CpuidResult *result)
+{
     result->detected = 1;
     strncpy(result->vendor_name, "Unknown Hypervisor", VENDOR_NAME_MAX - 1);
+    result->vendor_name[VENDOR_NAME_MAX - 1] = '\0';
 
     for (int i = 0; known_vendors[i].vendor_string != NULL; i++) {
         if (memcmp(result->vendor_string, known_vendors[i].vendor_string, 12) == 0) {
             strncpy(result->vendor_name, known_vendors[i].vendor_name,
                     VENDOR_NAME_MAX - 1);
+            result->vendor_name[VENDOR_NAME_MAX - 1] = '\0';
             break;
         }
     }

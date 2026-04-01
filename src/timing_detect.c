@@ -77,7 +77,7 @@ void timing_print(const TimingResult *result)
            (unsigned long long)result->median_cycles,
            (unsigned long long)result->max_cycles);
     printf("  Overhead elevated (>= 750 cy)        : %s\n",
-           result->elevated ? "YES (ambiguous — VBS/Hyper-V or VM)" : "NO");
+           result->elevated ? "YES (ambiguous - VBS/Hyper-V or VM)" : "NO");
     printf("  VM detected via timing               : %s\n",
            result->detected ? "YES (>= 3000 cy)" : "NO");
 }

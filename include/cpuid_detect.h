@@ -18,6 +18,13 @@ typedef struct {
  * that don't support a leaf the corresponding fields are zeroed/empty. */
 void cpuid_detect(CpuidResult *result);
 
+/*
+ * Given result->vendor_string already populated (12 bytes), match it against
+ * the known-vendor table and set result->vendor_name and result->detected.
+ * Exposed so tests can inject arbitrary vendor strings without hardware CPUID.
+ */
+void cpuid_classify_vendor(CpuidResult *result);
+
 /* Print a human-readable summary of *result to stdout. */
 void cpuid_print(const CpuidResult *result);
 

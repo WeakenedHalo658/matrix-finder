@@ -24,4 +24,8 @@ typedef struct {
 void smbios_detect(SmbiosResult *result);
 void smbios_print(const SmbiosResult *result);
 
+/* Classification helpers — return 1 if s matches the respective pattern list. */
+int smbios_is_vm_string(const char *s);
+int smbios_is_generic_string(const char *s);
+
 #endif /* SMBIOS_DETECT_H */

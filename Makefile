@@ -13,7 +13,10 @@ BUILDDIR = build
 SRCS  = $(wildcard $(SRCDIR)/*.c)
 OBJS  = $(patsubst $(SRCDIR)/%.c,$(BUILDDIR)/%.o,$(SRCS))
 
-.PHONY: all clean run
+TEST_LAYER_SRCS = $(filter-out $(SRCDIR)/main.c,$(wildcard $(SRCDIR)/*.c))
+TEST_BIN        = ghost-detector-tests.exe
+
+.PHONY: all clean run test
 
 all: $(BUILDDIR) $(TARGET)
 
@@ -29,5 +32,9 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 run: all
 	./$(TARGET)
 
+test: $(BUILDDIR)
+	$(CC) $(CFLAGS) -o $(TEST_BIN) $(TEST_LAYER_SRCS) tests/test_main.c -ladvapi32
+	./$(TEST_BIN)
+
 clean:
-	rm -rf $(BUILDDIR) $(TARGET)
+	rm -rf $(BUILDDIR) $(TARGET) $(TEST_BIN)

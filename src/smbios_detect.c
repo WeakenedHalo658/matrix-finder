@@ -106,6 +106,16 @@ static int matches_any(const char *s, const char *const *patterns)
     return 0;
 }
 
+int smbios_is_vm_string(const char *s)
+{
+    return matches_any(s, vm_patterns);
+}
+
+int smbios_is_generic_string(const char *s)
+{
+    return matches_any(s, generic_patterns);
+}
+
 /* Check a string, update counters, and store into dst. */
 static void classify(const char *src, char *dst, size_t dst_size,
                      int *vm_hits, int *generic_hits)
