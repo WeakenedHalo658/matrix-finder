@@ -1,0 +1,6 @@
+# Build artifacts
+build/
+*.exe
+
+# Claude Code
+.claude/
