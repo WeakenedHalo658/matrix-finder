@@ -6,7 +6,7 @@ CFLAGS   = -Wall -Wextra -O2 -Iinclude
 export TMPDIR := /tmp
 export TEMP   := /tmp
 export TMP    := /tmp
-TARGET   = ghost-detector.exe
+TARGET   = matrix-finder.exe
 SRCDIR   = src
 BUILDDIR = build
 
@@ -14,7 +14,7 @@ SRCS  = $(wildcard $(SRCDIR)/*.c)
 OBJS  = $(patsubst $(SRCDIR)/%.c,$(BUILDDIR)/%.o,$(SRCS))
 
 TEST_LAYER_SRCS = $(filter-out $(SRCDIR)/main.c,$(wildcard $(SRCDIR)/*.c))
-TEST_BIN        = ghost-detector-tests.exe
+TEST_BIN        = matrix-finder-tests.exe
 
 .PHONY: all clean run test
 

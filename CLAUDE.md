@@ -5,20 +5,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build & Run
 
 ```bash
-# Build
-/e/CodingEnvironment/MSYS2/usr/bin/make
-
-# Build and run
-/e/CodingEnvironment/MSYS2/usr/bin/make run
-
-# Clean
-/e/CodingEnvironment/MSYS2/usr/bin/make clean
+make        # build
+make run    # build and run
+make clean  # clean
 ```
 
-`make` lives at `/e/CodingEnvironment/MSYS2/usr/bin/make` (not on PATH by default).  
-GCC lives at `/e/CodingEnvironment/MSYS2/mingw64/bin/gcc`.
+GCC lives at `/e/CodingEnvironment/MSYS2/mingw64/bin/gcc` (on PATH via mingw64/bin).  
+`make` is at `E:\CodingEnvironment\MSYS2\usr\bin\make` (on system PATH).
 
-Object files go to `build/`, binary is `ghost-detector.exe` in the project root.
+Object files go to `build/`, binary is `matrix-finder.exe` in the project root.
 
 ## Architecture
 
