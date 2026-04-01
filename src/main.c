@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 #include "cpuid_detect.h"
+#include "registry_detect.h"
+#include "smbios_detect.h"
 
 int main(void)
 {
@@ -13,6 +15,22 @@ int main(void)
     CpuidResult cpuid_result;
     cpuid_detect(&cpuid_result);
     cpuid_print(&cpuid_result);
+
+    printf("\n");
+
+    /* --- Milestone 3: Registry Artifact Scan --- */
+    printf("[Registry Detection Layer]\n");
+    RegistryResult reg_result;
+    registry_detect(&reg_result);
+    registry_print(&reg_result);
+
+    printf("\n");
+
+    /* --- Milestone 3: SMBIOS Hardware String Scan --- */
+    printf("[SMBIOS Detection Layer]\n");
+    SmbiosResult smbios_result;
+    smbios_detect(&smbios_result);
+    smbios_print(&smbios_result);
 
     printf("\n------------------------------------------------\n");
     printf("Analysis complete.\n");
