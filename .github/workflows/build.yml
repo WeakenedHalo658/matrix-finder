@@ -1,0 +1,29 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MSYS2 and mingw64 gcc
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: mingw-w64-x86_64-gcc make
+
+      - name: Run tests
+        shell: msys2 {0}
+        run: make test
+
+      - name: Build main binary
+        shell: msys2 {0}
+        run: make
