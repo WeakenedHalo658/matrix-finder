@@ -72,7 +72,7 @@ void timing_print(const TimingResult *result)
 {
     printf("  Samples collected                    : %d\n",
            result->sample_count);
-    printf("  CPUID overhead — min / median / max  : %llu / %llu / %llu cycles\n",
+    printf("  CPUID overhead - min / median / max  : %llu / %llu / %llu cycles\n",
            (unsigned long long)result->min_cycles,
            (unsigned long long)result->median_cycles,
            (unsigned long long)result->max_cycles);

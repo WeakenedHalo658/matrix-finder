@@ -4,6 +4,7 @@
 #include "registry_detect.h"
 #include "smbios_detect.h"
 #include "timing_detect.h"
+#include "report.h"
 
 int main(void)
 {
@@ -33,14 +34,20 @@ int main(void)
     smbios_detect(&smbios_result);
     smbios_print(&smbios_result);
 
+    printf("\n");
+
     /* --- Milestone 4: RDTSC Timing Detection Layer --- */
     printf("[Timing Detection Layer]\n");
     TimingResult timing_result;
     timing_detect(&timing_result);
     timing_print(&timing_result);
 
-    printf("\n------------------------------------------------\n");
-    printf("Analysis complete.\n");
+    printf("\n");
+
+    /* --- Milestone 5: Report Engine --- */
+    Report report;
+    report_compute(&report, &cpuid_result, &reg_result, &smbios_result, &timing_result);
+    report_print(&report);
 
     return 0;
 }
