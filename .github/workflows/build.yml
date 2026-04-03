@@ -27,3 +27,7 @@ jobs:
       - name: Build main binary
         shell: msys2 {0}
         run: make
+
+      - name: Run main binary
+        shell: msys2 {0}
+        run: make run
