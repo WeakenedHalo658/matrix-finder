@@ -98,6 +98,12 @@ Run on a bare-metal Windows 11 machine with Virtualization Based Security (VBS) 
   
 ---
 
+## AI-assisted development
+
+This project was built with the help of AI coding tools (Claude Code; see `CLAUDE.md`). I planned the architecture and milestones, directed the implementation, and reviewed and tested the code at each milestone commit.
+
+---
+
 ## Milestone history
 
 | Commit | Milestone | Description |
